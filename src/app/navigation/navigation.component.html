@@ -1,0 +1,66 @@
+<div class="navbar navbar-default ">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" rel="home" routerLink="/" title="Buy Sell Rent Everyting">
+        <picture>
+          <source media="(min-width: {{ global.SCREEN.DESKTOP }})" srcset="{{global.IMAGE_PATH + 'logo.gif' }}">
+          <source media="(min-width: {{ global.SCREEN.TABLET }})" srcset="{{global.IMAGE_PATH + 'logo.gif' }}">
+          <source media="(min-width: {{ global.SCREEN.MOBILE }})" srcset="{{global.IMAGE_PATH + 'logo-mobile.gif' }}">
+          <img class="lazyload" src="{{ global.IMAGE_PATH + 'logo-mobile.gif' }}"/>
+        </picture>
+      </a>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a routerLink="/">Dashboard</a>
+        </li>
+        <li>
+          <a routerLink="/">Heroes</a>
+        </li>
+        <li>
+          <a routerLink="/">Contact</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="/">Action</a>
+            </li>
+            <li>
+              <a routerLink="/">Another action</a>
+            </li>
+            <li>
+              <a routerLink="/">Something else here</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li>
+              <a routerLink="/">Separated link</a>
+            </li>
+            <li>
+              <a routerLink="/">One more separated link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="">
+        <div class="form-group">
+          <!-- <app-hero-search ></app-hero-search> -->
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

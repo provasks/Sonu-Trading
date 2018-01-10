@@ -1,0 +1,31 @@
+@import "../../styles.scss";
+
+.navbar {
+    margin-bottom: 0px;
+
+    @include gradient(white, blue, "horizontal");
+
+    // .navbar-default  .icon-bar
+    .navbar-toggle {
+        border-color: transparent;
+
+        .icon-bar {
+            background-color: red;
+        }
+
+        &:hover {
+            background-color: transparent;
+
+            .icon-bar {
+                background-color: yellow;
+            }
+        }
+    }
+
+    .navbar-brand {
+        img {
+            max-width: 85px;
+            margin-top: -7px;
+        }
+    }
+}
