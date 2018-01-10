@@ -13,6 +13,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { MessageService } from './services/message.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProductComponent } from './product/product.component';
     NavigationComponent,
     CarouselComponent,
     DashboardComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
