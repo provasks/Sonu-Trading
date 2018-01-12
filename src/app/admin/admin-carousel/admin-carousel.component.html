@@ -1,0 +1,21 @@
+<div class="admin-carousel">
+  <div class="row hidden-xs header">
+    <div class="col-sm-2">Title</div>
+    <div class="col-sm-2">Sub Title</div>
+    <div class="col-sm-2">Desktop</div>
+    <div class="col-sm-2">Tablet</div>
+    <div class="col-sm-2">Mobile</div>
+    <div class="col-sm-2">Actions</div>
+  </div>
+  <div *ngFor="let item of carousel" class="row" >
+    <div class="col-xs-10 col-sm-2">{{item.title}}</div>
+    <div class="col-xs-10 col-sm-2">{{item.subTitle}}</div>
+    <div class="col-xs-10 col-sm-2">{{item.url.Desktop}}</div>
+    <div class="col-xs-10 col-sm-2">{{item.url.Tablet}}</div>
+    <div class="col-xs-10 col-sm-2">{{item.url.Mobile}}</div>
+    <div class="col-sm-2">
+      <i class="glyphicon glyphicon-edit" title="Edit"></i>
+      <i class="glyphicon glyphicon-remove" title="Delete"></i>
+    </div>
+  </div>
+</div>

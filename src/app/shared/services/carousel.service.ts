@@ -1,4 +1,4 @@
-import { Globals } from './../globals';
+import { Globals } from './../../globals';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 // import { filter } from 'rxjs/operators/filter';
 import { of } from 'rxjs/observable/of';
 
-import { Carousel } from './carousel';
+import { Carousel } from './../models/carousel';
 import { MessageService } from '../services/message.service';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };

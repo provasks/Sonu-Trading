@@ -1,6 +1,6 @@
 import { Globals } from './globals';
 import { HttpClient } from '@angular/common/http';
-import { CarouselService } from './carousel/carousel.service';
+import { CarouselService } from './shared/services/carousel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { MessageService } from './services/message.service';
+import { MessageService } from './shared/services/message.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
+import { AdminCarouselComponent } from './admin/admin-carousel/admin-carousel.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     CarouselComponent,
     DashboardComponent,
     ProductComponent,
-    LoginComponent
+    LoginComponent,
+    AdminCarouselComponent
   ],
   imports: [
     BrowserModule,

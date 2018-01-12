@@ -4,7 +4,7 @@
     margin-bottom: 0px;
     border: 0;
 
-    @include gradient(white, blue, "horizontal");
+    @include gradient(#d5cea6, #002400, "vertical");
 
     // .navbar-default  .icon-bar
     .navbar-toggle {

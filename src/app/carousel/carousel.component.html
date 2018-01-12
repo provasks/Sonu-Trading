@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -9,10 +9,10 @@
     <div class="carousel-inner">
       <a title="{{item.title}}" *ngFor="let item of carousel; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'" routerLink="/">
         <picture>
-          <source media="(min-width: {{ global.SCREEN.DESKTOP }})" srcset="{{global.IMAGE_PATH + item.urlDesktop }}">
-          <source media="(min-width: {{ global.SCREEN.TABLET }})" srcset="{{global.IMAGE_PATH + item.urlTablet }}">
-          <source media="(min-width: {{ global.SCREEN.MOBILE }})" srcset="{{global.IMAGE_PATH + item.urlMobile }}">
-          <img class="lazyload" src="{{ global.IMAGE_PATH + item.urlMobile }}" alt="{{item.alt}}" />
+          <source media="(min-width: {{ global.SCREEN.DESKTOP }})" srcset="{{global.IMAGE_PATH + item.url.Desktop }}">
+          <source media="(min-width: {{ global.SCREEN.TABLET }})" srcset="{{global.IMAGE_PATH + item.url.Tablet }}">
+          <source media="(min-width: {{ global.SCREEN.MOBILE }})" srcset="{{global.IMAGE_PATH + item.url.Mobile }}">
+          <img class="lazyload" src="{{ global.IMAGE_PATH + item.url.Mobile }}" alt="{{item.alt}}" />
         </picture>
         <div class="carousel-caption">
           <h3>{{item.title}}</h3>

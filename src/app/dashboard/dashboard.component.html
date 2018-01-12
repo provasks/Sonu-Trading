@@ -1,1 +1,2 @@
-<app-carousel></app-carousel>
+<app-carousel *ngIf="!admin"></app-carousel>
+<app-admin-carousel *ngIf="admin"></app-admin-carousel>

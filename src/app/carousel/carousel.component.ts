@@ -1,7 +1,7 @@
 import { Globals } from './../globals';
-import { CarouselService } from './carousel.service';
+import { CarouselService } from './../shared/services/carousel.service';
 import { Component, OnInit } from '@angular/core';
-import {Carousel} from './carousel';
+import { Carousel } from './../shared/models/carousel';
 import { global } from '@angular/core/src/util';
 
 @Component({
@@ -14,26 +14,27 @@ export class CarouselComponent implements OnInit {
 
   constructor(
     private carouselService: CarouselService,
-    private global:Globals
+    private global: Globals
   ) {
-   }
+  }
 
   ngOnInit() {
     this.getCarousel();
-  //   $(document).ready(function() {
-  //     $("#myCarousel").swiperight(function() {
-  //        $(this).carousel('prev');
-  //      });
-  //     $("#myCarousel").swipeleft(function() {
-  //        $(this).carousel('next');
-  //     });
-  //  });
+    //   $(document).ready(function() {
+    //     $("#myCarousel").swiperight(function() {
+    //        $(this).carousel('prev');
+    //      });
+    //     $("#myCarousel").swipeleft(function() {
+    //        $(this).carousel('next');
+    //     });
+    //  });
   }
 
   getCarousel(): void {
     this.carouselService.getCarousel()
-      .subscribe(carousel => 
-        this.carousel = carousel
+      .subscribe(c => {
+        this.carousel = c
+      }
       );
   }
 }

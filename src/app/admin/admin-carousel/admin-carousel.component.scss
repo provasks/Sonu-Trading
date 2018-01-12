@@ -1,0 +1,18 @@
+.admin-carousel {
+    .row {
+        i {
+            cursor: pointer;
+        }
+
+        &:nth-child(even) {
+            background-color: #dcdcdc;
+        }
+
+        &:nth-child(odd) {
+            background-color: #aaaaaa;
+        }
+        &.header {
+            font-weight: bold;
+        }
+    }
+}
