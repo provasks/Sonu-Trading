@@ -7,15 +7,24 @@
     <div class="col-sm-2">Mobile</div>
     <div class="col-sm-2">Actions</div>
   </div>
-  <div *ngFor="let item of carousel" class="row" >
-    <div class="col-xs-10 col-sm-2">{{item.title}}</div>
-    <div class="col-xs-10 col-sm-2">{{item.subTitle}}</div>
-    <div class="col-xs-10 col-sm-2">{{item.url.Desktop}}</div>
-    <div class="col-xs-10 col-sm-2">{{item.url.Tablet}}</div>
-    <div class="col-xs-10 col-sm-2">{{item.url.Mobile}}</div>
-    <div class="col-sm-2">
-      <i class="glyphicon glyphicon-edit" title="Edit"></i>
-      <i class="glyphicon glyphicon-remove" title="Delete"></i>
+  <div *ngFor="let item of carousel" class="row">
+    <div class="col-xs-4 hidden-sm header">Title</div>
+    <div class="col-xs-6 col-sm-2">{{item.title}}</div>
+    <div class="col-xs-2 hidden-sm">
+      <i class="glyphicon glyphicon-edit" title="Edit" (click)="edit(item)"></i>
+      <i class="glyphicon glyphicon-remove" title="Delete" (click)="delete(item)"></i>
+    </div>
+    <div class="col-xs-4 hidden-sm header">Sub Title</div>
+    <div class="col-xs-8 col-sm-2">{{item.subTitle}}</div>
+    <div class="col-xs-4 hidden-sm header">Desktop</div>
+    <div class="col-xs-8 col-sm-2">{{item.url.Desktop}}</div>
+    <div class="col-xs-4 hidden-sm header">Tablet</div>
+    <div class="col-xs-8 col-sm-2">{{item.url.Tablet}}</div>
+    <div class="col-xs-4 hidden-sm header">Mobile</div>
+    <div class="col-xs-8 col-sm-2">{{item.url.Mobile}}</div>
+    <div class="col-sm-2 hidden-xs">
+      <i class="glyphicon glyphicon-edit" title="Edit" (click)="edit(item)"></i>
+      <i class="glyphicon glyphicon-remove" title="Delete" (click)="delete(item)"></i>
     </div>
   </div>
 </div>
