@@ -1,17 +1,56 @@
+@import "../../../styles.scss";
+
 .admin-carousel {
-    .row {
-        i {
-            cursor: pointer;
-        }
+    // @include gradient(orange, yellow, "horizontal");
+    padding-top: 15px;
 
-        &:nth-child(even) {
-            background-color: #dcdcdc;
-        }
-
-        &:nth-child(odd) {
-            background-color: #aaaaaa;
+    .editor {
+        .row {
+            padding:10px;
+            div {
+                padding: 5px;
+                input {
+                    width: 100%;
+                    border:0;
+                    padding:5px;
+                }
+            }
         }
     }
+
+    .panel-body {
+        @include gradient(#d5cea6, #002400, "radial");
+        padding: 0 15px;
+    }
+
+    .list {
+        .row {
+            i {
+                cursor: pointer;
+                color: red;
+            }
+
+            &:nth-child(even) {
+                background-color: #dcdcdc;
+            }
+
+            &:nth-child(odd) {
+                background-color: #aaaaaa;
+            }
+
+            .controls {
+                text-align: right;
+                padding-left: 0;
+                width: 22%;
+            }
+
+            .caption {
+                width: 28%;
+                padding-right: 0;
+            }
+        }
+    }
+
     .header {
         font-weight: bold;
     }

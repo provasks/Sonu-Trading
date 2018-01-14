@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit {
 
   private admin: number;
   constructor(
-    // private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -18,14 +17,5 @@ export class DashboardComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.admin = +params['admin'];
     });
-    // let link:any[] = ['/dashboard', this.admin];
-    // this.router.navigate(link);
-    // this.router.navigate('/dashboard/'+this.admin);
-    // this.admin = +this.route.snapshot.paramMap.get('admin');
-    // this.initialiseState();
   }
-  // ngOnChanges(){
-  //   debugger;
-  //   this.admin = +this.route.snapshot.paramMap.get('admin');
-  // }
 }

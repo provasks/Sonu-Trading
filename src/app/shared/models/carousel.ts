@@ -1,10 +1,11 @@
 export class Carousel {
-    id: number;
+    _id: string;
     title: string;
-    subtitle: string;
+    subTitle: string;
     url: {
         Desktop: string,
         Tablet: string,
         Mobile: string
-    }
+    };
+    alt: string;
 }

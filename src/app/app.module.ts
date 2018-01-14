@@ -4,6 +4,7 @@ import { CarouselService } from './shared/services/carousel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -31,7 +32,8 @@ import { AdminCarouselComponent } from './admin/admin-carousel/admin-carousel.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // LazyLoadImageModule 
+    ReactiveFormsModule,
+    FormsModule    // LazyLoadImageModule 
   ],
   providers: [Globals, MessageService, CarouselService],
   bootstrap: [AppComponent]
