@@ -1,5 +1,5 @@
 export class Carousel {
-    _id: string;
+    _id?: string;
     title: string;
     subTitle: string;
     url: {

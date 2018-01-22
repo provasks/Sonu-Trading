@@ -4,7 +4,7 @@ import { CarouselService } from './shared/services/carousel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +16,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { AdminCarouselComponent } from './admin/admin-carousel/admin-carousel.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
+import { SortPipe } from './filters/sort.pipe';
+import { OrderByPipe } from './filters/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,11 @@ import { AdminCarouselComponent } from './admin/admin-carousel/admin-carousel.co
     DashboardComponent,
     ProductComponent,
     LoginComponent,
-    AdminCarouselComponent
+    AdminCarouselComponent,
+    SignupComponent,
+    StopPropagationDirective,
+    SortPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

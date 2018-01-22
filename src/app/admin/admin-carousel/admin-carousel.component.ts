@@ -2,9 +2,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CarouselComponent } from './../../carousel/carousel.component';
 import { CarouselService } from './../../shared/services/carousel.service';
 import { Component, OnInit } from '@angular/core';
-import { Carousel } from './../../shared/models/carousel';
 import { MessageService } from '../../shared/services/message.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Carousel } from '../../shared/models/carousel';
 
 @Component({
   selector: 'app-admin-carousel',
@@ -13,20 +13,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class AdminCarouselComponent implements OnInit {
   private carousels: Carousel[] = [];
-  private keys: any;
-  private selectedCarousel: Carousel;
+  private selectedCarousel: Carousel = {} as Carousel;
 
   constructor(
     private carouselService: CarouselService,
     private messageService: MessageService,
   ) {
-    this.selectedCarousel = this.setCaoursel({url:{}});
+    this.selectedCarousel = this.setCaoursel(this.selectedCarousel);
   }
 
   ngOnInit() {
     this.getCarousel();
   }
-  setCaoursel(carousel) {
+  setCaoursel(carousel: any) {
+    if (typeof carousel.url == 'undefined')
+      carousel.url = {};
     return {
       title: carousel.title || "",
       _id: carousel._id || "",
@@ -48,14 +49,57 @@ export class AdminCarouselComponent implements OnInit {
   edit(carousel) {
     this.selectedCarousel = this.setCaoursel(carousel);
   }
-  delete(carosel) {
-    this.messageService.logInfo(`Delete carosel ${carosel._id}`);
+  delete(carousel) {
+    let self = this;
+    this.carouselService.deleteCarousel(carousel._id).subscribe(
+      data => {
+        self.carousels = self.carousels.filter(function (item) {
+          return item._id !== carousel._id;
+        });
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
   addCarousel() {
+    delete this.selectedCarousel._id;
+    this.carouselService.addCarousel(this.selectedCarousel).subscribe(
+      data => {
+        this.carousels.unshift(data);
+        this.selectedCarousel = this.setCaoursel({});
+      },
+      error => {
+        console.log(error);
+      }
+
+    )
     this.messageService.logInfo(`Add carosel fired`);
   }
   updateCarousel() {
-    this.messageService.logInfo(`update carosel fired`);
-    console.log(this.selectedCarousel)
+    let self = this;
+    this.carouselService.updateCarousel(this.selectedCarousel).subscribe(
+      data => {
+        for (let carousel of self.carousels) {
+          if (carousel._id === self.selectedCarousel._id) {
+            this.updateObject(carousel, data);
+          }
+        }
+      },
+      error => {
+        console.log(error);
+      }
+
+    )
+  }
+  updateObject(obj, data) {
+    for (var property in data) {
+      if (data.hasOwnProperty(property)) {
+        if (typeof obj[property] !== 'undefined') {
+          obj[property] = data[property];
+        }
+      }
+    }
   }
 }
+

@@ -26,7 +26,7 @@ export class MessageService {
     console.warn(message);
   }
 
-  show(message:string){
+  show(message: string) {
     alert(message);
   }
 
@@ -36,9 +36,9 @@ export class MessageService {
   * @param result - optional value to return as the observable result
   */
   logError<T>(operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-          console.error(`${operation} failed: Message: ${error.message}`);
-          return of(result as T);
-      };
+    return (error: any): Observable<T> => {
+      console.error(`${operation} failed: Message: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

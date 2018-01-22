@@ -1,3 +1,4 @@
+// import { Carousel } from './../../shared/services/carousel';
 import { Globals } from './../../globals';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
@@ -7,8 +8,9 @@ import { Observable } from 'rxjs/Observable';
 // import { filter } from 'rxjs/operators/filter';
 import { of } from 'rxjs/observable/of';
 
-import { Carousel } from './../models/carousel';
+// import { Carousel } from './../models/carousel';
 import { MessageService } from '../services/message.service';
+import { Carousel } from '../models/carousel';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
@@ -22,7 +24,7 @@ export class CarouselService {
     private messageService: MessageService,
     private _globals: Globals
   ) {
-    this.carouselUrl = _globals.API_ENDPOINT + 'carousel';
+    this.carouselUrl = _globals.API_ENDPOINT + 'carousels';
   }
 
   /** GET carousel from the server */
@@ -32,6 +34,18 @@ export class CarouselService {
       tap(carousel => this.messageService.logInfo(`fetched carousel`)),
       catchError(this.messageService.logError('getCarousel', []))
       );
+  }
+
+  addCarousel(carousel: Carousel) {
+    return this.http.post<Carousel>(this.carouselUrl, carousel, httpOptions);
+  }
+
+  updateCarousel(carousel: Carousel) {
+    return this.http.put<Carousel>(this.carouselUrl + "/" + carousel._id, carousel, httpOptions);
+  }
+
+  deleteCarousel(_id: string) {
+    return this.http.delete<any>(this.carouselUrl + "/" + _id, httpOptions);
   }
   /** GET carousel from the server */
   // searchHeroes(term: string): Observable<Carousel[]> {

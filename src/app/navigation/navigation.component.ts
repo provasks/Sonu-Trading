@@ -1,6 +1,6 @@
 import { Globals } from './../globals';
 import { global } from '@angular/core/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -10,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   constructor(
-    private global:Globals
+    private global: Globals,
+    private el: ElementRef,
+    private renderer: Renderer
   ) { }
 
   ngOnInit() {
   }
-
+  onMenuClick(event) {
+    // this.renderer.setElementClass(this.el.nativeElement.querySelector('.navbar-ex1-collapse'), 'in', false);
+    this.renderer.setElementClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'in', false);
+  }
 }

@@ -4,28 +4,29 @@
       <h3 class="panel-title">Carousel Editor</h3>
     </div>
     <div class="panel-body">
-        <!-- <form [formGroup]="frmAdminCarousel"  novalidate> -->
-        <div class="row" *ngIf="selectedCarousel">
+      <form class="form" role="form" accept-charset="UTF-8" id="frmAdminCaoursel">
+        <div class="row" >
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.title" placeholder="Title" title="Title"/>
+            <input type="text" name="title" [(ngModel)]="selectedCarousel.title" placeholder="Title" title="Title" />
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.subTitle" placeholder="Sub Title" title="Sub Title"/>
+            <input type="text" name="subTitle" [(ngModel)]="selectedCarousel.subTitle" placeholder="Sub Title" title="Sub Title" />
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.url.Desktop" placeholder="Desktop Url" title="Desktop Url"/>
+            <input type="text" name="Desktop" [(ngModel)]="selectedCarousel.url.Desktop" placeholder="Desktop Url" title="Desktop Url"
+            />
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.url.Tablet" placeholder="Tablet Url" title="Tablet Url"/>
+            <input type="text" name="Tablet" [(ngModel)]="selectedCarousel.url.Tablet" placeholder="Tablet Url" title="Tablet Url" />
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.url.Mobile" placeholder="Mobile Url" title="Mobile Url"/>
+            <input type="text" name="Mobile" [(ngModel)]="selectedCarousel.url.Mobile" placeholder="Mobile Url" title="Mobile Url" />
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <input type="text" [(ngModel)]="selectedCarousel.alt" placeholder="Alt text" title="Alt text"/>
+            <input type="text" name="alt" [(ngModel)]="selectedCarousel.alt" placeholder="Alt text" title="Alt text" />
           </div>
         </div>
-      <!-- </form> -->
+      </form>
     </div>
     <div class="panel-footer">
       <button class="btn btn-primary" (click)="addCarousel()">Add</button>
@@ -46,7 +47,7 @@
         <div class="col-sm-2">Mobile</div>
         <div class="col-sm-2">Actions</div>
       </div>
-      <div *ngFor="let item of carousels" class="row">
+      <div *ngFor="let item of carousels | orderBy:['-title','subTitle','alt']" class="row">
         <div class="col-xs-4 hidden-sm hidden-md hidden-lg header caption">Title</div>
         <div class="col-xs-6 col-sm-2">{{item.title}}</div>
         <div class="col-xs-2 hidden-sm hidden-md hidden-lg controls">
