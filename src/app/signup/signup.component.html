@@ -59,9 +59,9 @@
       </div>
     </div>
 
-    <!--
-  <pre>{{ password.errors | json }}</pre>
--->
+
+    <!-- <pre>{{ password.errors | json }}</pre> -->
+
 
     <div class="form-group" [ngClass]="{
       'has-danger': language.invalid && (language.dirty || language.touched),
@@ -73,6 +73,9 @@
       </select>
     </div>
 
-    <pre>{{myform.value | json}}</pre>
+    <button class="btn btn-primary" [disabled]="!myform.invalid" (click)="signup()">Signup</button>
+
+    <!-- <pre>{{ myform.errors | json }}</pre> -->
+    <!-- <pre>valid: {{!myform.invalid | json}}</pre> -->
   </form>
 </div>

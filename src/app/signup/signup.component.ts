@@ -1,7 +1,9 @@
+import { User } from './../shared/models/user';
 import { NgModule, Component, Pipe, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Form } from '@angular/forms/src/directives/form_interface';
 
 
 @Component({
@@ -11,6 +13,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 })
 
 export class SignupComponent implements OnInit {
+  constructor(){
+
+  }
+  user: User;
   langs: string[] = [
     'English',
     'French',
@@ -29,6 +35,9 @@ export class SignupComponent implements OnInit {
     this.createForm();
   }
 
+  signup(){
+    this.user = this.myform.value;
+  }
   createFormControls() {
     this.firstName = new FormControl('', Validators.required);
     this.lastName = new FormControl('', Validators.required);

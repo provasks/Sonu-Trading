@@ -19,6 +19,6 @@ export class NavigationComponent implements OnInit {
   }
   onMenuClick(event) {
     // this.renderer.setElementClass(this.el.nativeElement.querySelector('.navbar-ex1-collapse'), 'in', false);
-    this.renderer.setElementClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'in', false);
+    // this.renderer.setElementClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'in', false);
   }
 }

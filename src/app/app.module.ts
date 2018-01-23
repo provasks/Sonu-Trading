@@ -17,9 +17,9 @@ import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { AdminCarouselComponent } from './admin/admin-carousel/admin-carousel.component';
 import { SignupComponent } from './signup/signup.component';
-import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { SortPipe } from './filters/sort.pipe';
 import { OrderByPipe } from './filters/order-by.pipe';
+import { MenuItemDirective } from './directives/menu-item.directive';
 
 @NgModule({
   declarations: [
@@ -31,9 +31,10 @@ import { OrderByPipe } from './filters/order-by.pipe';
     LoginComponent,
     AdminCarouselComponent,
     SignupComponent,
-    StopPropagationDirective,
+    MenuItemDirective,
     SortPipe,
-    OrderByPipe
+    OrderByPipe,
+    MenuItemDirective
   ],
   imports: [
     BrowserModule,

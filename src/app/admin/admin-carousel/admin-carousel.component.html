@@ -45,9 +45,9 @@
         <div class="col-sm-2">Desktop</div>
         <div class="col-sm-2">Tablet</div>
         <div class="col-sm-2">Mobile</div>
-        <div class="col-sm-2">Actions</div>
+        <div class="col-sm-2 text-right">Actions</div>
       </div>
-      <div *ngFor="let item of carousels | orderBy:['-title','subTitle','alt']" class="row">
+      <div *ngFor="let item of carousels | orderBy:['-title','subTitle']" class="row">
         <div class="col-xs-4 hidden-sm hidden-md hidden-lg header caption">Title</div>
         <div class="col-xs-6 col-sm-2">{{item.title}}</div>
         <div class="col-xs-2 hidden-sm hidden-md hidden-lg controls">
@@ -62,7 +62,7 @@
         <div class="col-xs-8 col-sm-2">{{item.url.Tablet}}</div>
         <div class="col-xs-4 hidden-sm hidden-md hidden-lg header caption">Mobile</div>
         <div class="col-xs-8 col-sm-2">{{item.url.Mobile}}</div>
-        <div class="col-sm-2 hidden-xs">
+        <div class="col-sm-2 hidden-xs text-right">
           <i class="glyphicon glyphicon-edit" title="Edit" (click)="edit(item)"></i>
           <i class="glyphicon glyphicon-remove" title="Delete" (click)="delete(item)"></i>
         </div>
