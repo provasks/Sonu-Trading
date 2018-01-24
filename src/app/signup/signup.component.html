@@ -1,5 +1,5 @@
 <div class="container-fluid signup">
-  <h2>Signup</h2>
+  <h2 i11n>Signup</h2>
   <form novalidate [formGroup]="myform" class="signup">
 
     <fieldset formGroupName="name">
@@ -7,7 +7,7 @@
       'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
       'has-success': firstName.valid && (firstName.dirty || firstName.touched)
     }">
-        <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" required>
+        <input type="text" class="form-control" formControlName="firstName" i18n-placeholder placeholder="First Name" required>
         <div class="form-control-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
           <p *ngIf="firstName.errors.required">First Name is required</p>
         </div>

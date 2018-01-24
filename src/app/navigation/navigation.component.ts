@@ -1,6 +1,7 @@
 import { Globals } from './../globals';
 import { global } from '@angular/core/src/util';
 import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
+// import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-navigation',
@@ -13,6 +14,7 @@ export class NavigationComponent implements OnInit {
     private global: Globals,
     private el: ElementRef,
     private renderer: Renderer
+    // private util1: UtilityService
   ) { }
 
   ngOnInit() {

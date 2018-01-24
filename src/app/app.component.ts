@@ -1,4 +1,6 @@
+import { UtilityService } from './shared/services/utility.service';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common/src/common_module';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private util:UtilityService){}
 }

@@ -1,2 +1,10 @@
+<h1 translate>Title</h1>
+<div>
+  {{ 'Intro' | translate:user }}
+</div>
+
+<button (click)="this.util.switchLanguage('en')">en</button>
+<button (click)="this.util.switchLanguage('fr')">fr</button>
+
 <app-navigation></app-navigation>
 <router-outlet></router-outlet>

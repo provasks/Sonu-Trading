@@ -1,9 +1,7 @@
 import { Globals } from './globals';
-import { HttpClient } from '@angular/common/http';
 import { CarouselService } from './shared/services/carousel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +18,10 @@ import { SignupComponent } from './signup/signup.component';
 import { SortPipe } from './filters/sort.pipe';
 import { OrderByPipe } from './filters/order-by.pipe';
 import { MenuItemDirective } from './directives/menu-item.directive';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UtilityService } from './shared/services/utility.service';
 
 @NgModule({
   declarations: [
@@ -40,10 +42,27 @@ import { MenuItemDirective } from './directives/menu-item.directive';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ReactiveFormsModule,
     FormsModule    // LazyLoadImageModule 
   ],
-  providers: [Globals, MessageService, CarouselService],
+  providers: [
+    Globals, 
+    MessageService, 
+    CarouselService, 
+    UtilityService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
